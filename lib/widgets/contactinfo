@@ -1,0 +1,34 @@
+
+import 'package:flutter/material.dart';
+class ContactInfo extends StatelessWidget {
+  const ContactInfo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // La Row original de los datos de contacto
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        // Email
+        const Icon(Icons.email, size: 16, color: Colors.grey),
+        const SizedBox(width: 5),
+        Text(
+          'alex.telmo@gmail.com',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        const SizedBox(width: 20),
+
+        // Teléfono
+        const Icon(Icons.phone, size: 16, color: Colors.grey),
+        const SizedBox(width: 5),
+        Text('+34 555 123 456', style: Theme.of(context).textTheme.bodyMedium),
+        const SizedBox(width: 20),
+
+        // LinkedIn (o info general)
+        const Icon(Icons.info, size: 16, color: Colors.grey),
+        const SizedBox(width: 5),
+        Text('url linkedin', style: Theme.of(context).textTheme.bodyMedium),
+      ],
+    );
+  }
+}
