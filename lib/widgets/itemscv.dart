@@ -2,20 +2,30 @@ import 'package:flutter/material.dart';
 
 class Itemcv extends StatelessWidget {
   final String titulo;
-  final String descripcion;
+  final String descripcion; // Debe coincidir con el parámetro del constructor
 
-  const Itemcv({required this.titulo, required this.descripcion});
+  const Itemcv({
+    super.key,
+    required this.titulo,
+    required this.descripcion, // Corregido
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Título de ejemplo",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          titulo,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
         ),
-        Divider(thickness: 1),
+        const SizedBox(height: 4),
+        Text(descripcion),
+        const Divider(),
+        const SizedBox(height: 8),
       ],
     );
   }

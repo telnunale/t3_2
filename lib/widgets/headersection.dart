@@ -7,54 +7,59 @@ class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // El widget Row original que contiene la imagen y la información
-    return Container(   
-      // color: Colors.blue,  
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 150,
-            height: 150,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage('assets/img/image.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          
-          ),
-
-          const SizedBox(width: 24),
-          // Columna de información (nombre, título, contacto)
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+    return Stack(
+      children: [
+        // Fondo decorativo
+        Container(
+          height: 200,
+          color: Colors.indigo.shade100,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
             children: [
-              Text(
-                'Alex Telmo Núñez',
-                style: TextStyle(
-                  fontSize: 45,
-                  fontWeight: FontWeight.w900,
-                  // Usamos Theme.of(context) que está disponible aquí
-                  color: Theme.of(context).primaryColor,
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: const DecorationImage(
+                    image: AssetImage('assets/img/image.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              Text(
-                'Desarrollador Full Stack',
-                style: Theme.of(context).textTheme.titleLarge,
+              const SizedBox(width: 24),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Text(
+                      'Alex Telmo Núñez',
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.indigo,
+                      ),
+                    ),
+                    Text(
+                      'Desarrollador Full Stack',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    ContactInfo(),
+                  ],
+                ),
               ),
-              SizedBox(
-                width: 320,
-                child: const Divider(height: 10, thickness: 1),
-              ),
-              // Widget separado para la información de contacto
-              const ContactInfo(),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
