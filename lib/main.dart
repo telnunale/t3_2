@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
               children: [
                 Text(
                   '• Desarrollo de Aplicaciones Web - IES Muralla Romana',
-                  style: const TextStyle(fontSize: 18),
+                  //style: const TextStyle(fontSize: 12),
                 ),
               ],
             ),
@@ -66,7 +66,16 @@ class MyApp extends StatelessWidget {
                 HabilidadItem(habilidad: 'JavaScript'),
                 HabilidadItem(habilidad: 'SQL / Bases de datos'),
                 HabilidadItem(habilidad: 'Git / Control de versiones'),
-              ],
+              ],              
+            ),
+            SeccionCV(
+              titulo: 'Idiomas',
+              children: [
+                HabilidadItem(habilidad: 'Chino'),
+                HabilidadItem(habilidad: 'Español'),
+                HabilidadItem(habilidad: 'Gallego'),
+                HabilidadItem(habilidad: 'Ingles'),
+              ],              
             ),
           ],
         ),

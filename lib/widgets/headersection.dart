@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t3_2/widgets/header_icon_button.dart';
 import 'header_image.dart';
 import 'header_info.dart';
 
@@ -15,14 +16,14 @@ class HeaderSection extends StatelessWidget {
 
         return Stack(
           children: [
+            // Fondo + contenido principal centrado
             Container(
-              height: isMobile ? 220 : 200,
+              width: double.infinity,
               color: Colors.indigo.shade100,
-            ),
-            Padding(
               padding: EdgeInsets.all(padding),
               child: isMobile
                   ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         HeaderImage(),
@@ -31,6 +32,7 @@ class HeaderSection extends StatelessWidget {
                       ],
                     )
                   : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         HeaderImage(),
@@ -38,6 +40,15 @@ class HeaderSection extends StatelessWidget {
                         Expanded(child: HeaderInfo()),
                       ],
                     ),
+            ),
+
+            const Positioned(
+              top: 12,
+              right: 12,
+              child: HeaderIconButton(
+                icon: Icons.thumb_up,
+                message: 'Has pulsado el botón del header',
+              ),
             ),
           ],
         );
